@@ -1,6 +1,6 @@
 require_relative "../config/environment.rb"
 require 'active_support/inflector'
-require "pry"
+
 
 class Song
 
@@ -43,7 +43,6 @@ class Song
   end
 
   def values_for_insert
-    binding.pry
     self.class.column_names.reject{|col_name| send(col_name).nil?}.map{|col_name|"'#{send(col_name)}'"}.join(", ")
   end
   
