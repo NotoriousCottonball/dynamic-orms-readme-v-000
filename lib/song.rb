@@ -43,8 +43,8 @@ class Song
   end
 
   def values_for_insert
-    self.class.column_names.reject{|col_name| send(col_name).nil?}.map{"'#{send(col_name)}'"}.join(", ")
     binding.pry
+    self.class.column_names.reject{|col_name| send(col_name).nil?}.map{"'#{send(col_name)}'"}.join(", ")
   end
 
   def col_names_for_insert
