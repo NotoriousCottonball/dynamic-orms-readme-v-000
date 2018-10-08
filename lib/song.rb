@@ -43,9 +43,7 @@ class Song
 
   def values_for_insert
     values = []
-    self.class.column_names.map do |col_name|
-      "'#{send(col_name)}'" unless send(col_name).nil?
-    end.join(", ")
+    self.class.column_names.reject{|col_name| send(col_name).nil?}.map{"'#{send(col_name)}'"}.join(", ")
   end
 
   def col_names_for_insert
