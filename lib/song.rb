@@ -42,7 +42,6 @@ class Song
   end
 
   def values_for_insert
-    values = []
     self.class.column_names.reject{|col_name| send(col_name).nil?}.map{"'#{send(col_name)}'"}.join(", ")
   end
 
